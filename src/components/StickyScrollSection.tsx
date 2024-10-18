@@ -48,7 +48,7 @@ const content = [
 ];
 export default function StickyScrollRevealDemo() {
   return (
-    <div className="h-dvh grid items-center">
+    <div className="h-dvh grid items-center shadow-sticky">
       <StickyScroll content={content} />
     </div>
   );

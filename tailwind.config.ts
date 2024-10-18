@@ -6,11 +6,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true,
 });
 
-const flattenColorPalette:any = (colors:any) => {
-  return Object.assign({},...Object.entries(colors !== null && colors !== void 0 ? colors : {})
-  .flatMap(
-    ([color, values]: any) => {
-     return typeof values == "object"
+const flattenColorPalette: any = (colors: any) => {
+  return Object.assign(
+    {},
+    ...Object.entries(
+      colors !== null && colors !== void 0 ? colors : {}
+    ).flatMap(([color, values]: any) => {
+      return typeof values == "object"
         ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
             [color + (number === "DEFAULT" ? "" : `-${number}`)]: hex,
           }))
@@ -19,8 +21,7 @@ const flattenColorPalette:any = (colors:any) => {
               [`${color}`]: values,
             },
           ];
-    }
-  )
+    })
   );
 };
 
@@ -62,6 +63,9 @@ const config: Config = {
             transform: "translate(-50%,-40%) scale(1)",
           },
         },
+      },
+      boxShadow: {
+        "sticky": "inset 0 10px 10px 10px #0a0a0a",
       },
     },
   },
