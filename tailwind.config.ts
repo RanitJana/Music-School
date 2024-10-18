@@ -1,6 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use strict";
 import type { Config } from "tailwindcss";
 
-import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette";
+Object.defineProperty(exports, "__esModule", {
+  value: true,
+});
+
+const flattenColorPalette:any = (colors:any) => {
+  return Object.assign({},...Object.entries(colors !== null && colors !== void 0 ? colors : {})
+  .flatMap(
+    ([color, values]: any) => {
+     return typeof values == "object"
+        ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
+            [color + (number === "DEFAULT" ? "" : `-${number}`)]: hex,
+          }))
+        : [
+            {
+              [`${color}`]: values,
+            },
+          ];
+    }
+  )
+  );
+};
 
 function addVariablesForColors({ addBase, theme }: any) {
   const allColors = flattenColorPalette(theme("colors"));
