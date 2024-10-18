@@ -20,19 +20,20 @@ function Card({
   price,
   instructor,
   isFeatured,
-}: infoStructure) {
+}: Partial<infoStructure>) {
   return (
-    <BackgroundGradient className="rounded-[22px] w-full p-10 bg-zinc-900 h-full">
-      <p className="text-sm text-neutral-600 dark:text-neutral-400">
-        {description}
-      </p>
-      <button className="rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800">
+    <div className="rounded-[22px] w-full p-10 bg-zinc-900 h-full hover:cursor-pointer flex flex-col justify-between">
+      <div>
+        <p className="text-[1.2rem] text-white font-black">{title}</p>
+        <p className="text-sm text-gray-500">{description}</p>
+      </div>
+      <button className="w-fit rounded-full h-10 p-1 pl-4 text-white flex items-center gap-2 space-x-1 bg-black mt-4 text-xs font-bold">
         <span>Buy now</span>
-        <span className="bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white">
+        <span className="bg-zinc-700 rounded-full h-full px-4 text-white grid place-items-center">
           {price}
         </span>
       </button>
-    </BackgroundGradient>
+    </div>
   );
 }
 
