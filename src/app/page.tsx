@@ -1,4 +1,5 @@
 import FeaturedSection from "@/components/FeaturedSection";
+import BackgroundBoxesDemo from "@/components/GridSection";
 import HeroSection from "@/components/HeroSection";
 import StickyScroll from "@/components/StickyScrollSection";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <FeaturedSection />
       <StickyScroll />
+      <BackgroundBoxesDemo/>
     </div>
   );
 }
